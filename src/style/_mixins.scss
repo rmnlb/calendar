@@ -1,0 +1,24 @@
+@mixin popup() {
+  position: absolute;
+  background: #ffffff;
+}
+
+@mixin topArrow($left) {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  transform: rotate(45deg);
+  position: absolute;
+  top: -10px;
+  left: $left;
+  box-shadow: -1.5px -1.5px .5px lightgrey;
+}
+
+@mixin arrow($deg) {
+  @include popup();
+  box-shadow: -1.5px 1.5px .5px lightgrey;
+  width: 20px;
+  height: 20px;
+  transform: rotate($deg);
+}

@@ -1,0 +1,68 @@
+@import "variables";
+@import "mixins";
+
+.jumbotron {
+  padding-top: 30px;
+  padding-bottom: 0;
+  margin-bottom: 10px;
+}
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+.search {
+
+  &__icon {
+    width: 28px;
+    height: auto;
+    padding-bottom: 5px;
+  }
+  &__input {
+    width: auto;
+  }
+}
+
+.search-match {
+  @include popup;
+  width: 175px;
+  right: 10px;
+  top: 50px;
+  box-shadow: 0 0 5px grey;
+  z-index: 200;
+  padding: 10px;
+  &__container {
+    border-bottom: 1px solid grey;
+  }
+  &__content {
+    overflow-y: auto;
+    max-height: 250px;
+  }
+  &::before {
+    @include topArrow(30px);
+  }
+
+}
+
+.new-event {
+  @include popup;
+  box-shadow: 0 0 5px grey;
+  z-index: 200;
+  left: 10px;
+  top: 50px;
+  width: 250px;
+  height: 80px;
+  padding: 20px;
+  &__input {
+    width: 220px;
+  }
+  &__btn {
+    display: block;
+  }
+
+  &::before {
+    @include topArrow(30px);
+  }
+}

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+          integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href="./public/style/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/ru.js"></script>
+    <title>Calendar</title>
+</head>
+<body>
+<header class="container-fluid jumbotron">
+    <div class="row justify-content-between">
+        <div class="container">
+            <div class="row">
+                <div class="col header">
+                    <div class="button-group">
+                        <button
+                                class="btn btn-primary"
+                                id="addEvent"
+                                type="button"
+                        >Добавить</button>
+                        <button
+                                class="btn btn-primary"
+                                id="refresh"
+                                type="button"
+                        >Обновить</button>
+
+                    </div>
+                    <label class="search">
+                        <img
+                                src="./public/images/698627-icon-111-search-512.png"
+                                alt="Search"
+                            class="search__icon"
+                        >
+                        <input
+                                type="text"
+                                class="form-control search__input"
+                        >
+                    </label>
+                    <div class="search-match popup hidden">
+                        <div class="search-match__arrow"></div>
+                        <div class="search-match__content"></div>
+                    </div>
+                    <div class="new-event popup hidden">
+
+                            <input type="text"
+                                   class="new-event__input form-control"
+                                   placeholder="27 октября, 15:00, День рождения"
+                            >
+
+                        <button class="btn btn-sm new-event__btn">Создать</button>
+                        <span class="close new-event__close">x</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <div class="row">
+            <nav class="col nav">
+                <button class="btn btn-sm nav__btn prevDate"><</button>
+                <span class="nav__date"></span>
+                <button class="btn btn-sm nav__btn nextDate">></button>
+                <button class="btn btn-sm nav__btn nav__btn_today today">Сегодня</button>
+            </nav>
+        </div>
+    </div>
+    <div class="container calendar">
+        <div class="row calendar__row">
+            <div class="calendar__col"></div>
+            <div class="calendar__col"></div>
+            <div class="calendar__col"></div>
+            <div class="calendar__col"></div>
+            <div class="calendar__col"></div>
+            <div class="calendar__col"></div>
+            <div class="calendar__col"></div>
+        </div>
+        <div class="calendar__popup popup hidden">
+            <h5 class="calendar__popup__title dynamic"></h5>
+            <input type="text"
+                   class="calendar__popup__input form-control titleInput hidden"
+                   placeholder="Название события">
+            <span class="calendar__popup__date dynamic"></span>
+            <span class="calendar__popup__time dynamic"></span>
+            <input type="time"
+                   class="calendar__popup__timeInput form-control"
+                   title="time"
+            >
+            <p class="calendar__popup__part calendar__popup__part-title">Участники:</p>
+            <p class="calendar__popup__part dynamic"></p>
+            <input type="text"
+                   class="calendar__popup__input form-control particInput hidden"
+                   placeholder="Участники">
+            <p class="calendar__popup__descr-title">Описание:</p>
+            <pre class="calendar__popup__description dynamic"></pre>
+            <textarea name="desc"
+                      class="hidden calendar__popup__descr form-control"
+                      rows="5"
+                      cols="31"
+                      placeholder="Описание"
+            ></textarea>
+            <div>
+                <button class="btn btn-sm btn-default" id="save">Готово</button>
+                <button class="btn btn-sm btn-default hidden" id="edit">Редактировать</button>
+                <button class="btn btn-sm btn-default" id="delete">Удалить</button>
+            </div>
+            <span class="close popup-close">x</span>
+            <div class="arrow"></div>
+        </div>
+    </div>
+</main>
+
+<!--<script src="./testObj.js"></script>-->
+<script src="public/script/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+@import "variables";
+@import "mixins";
+
+.nav {
+  padding-bottom: 15px;
+
+  &__date {
+    margin: 0 10px;
+    min-width: 100px;
+    text-align: center;
+  }
+
+  &__btn {
+    background: #ffffff;
+    border: 1px solid #808080;
+
+    &_today {
+      margin: 0 10px;
+    }
+  }
+}
+
+.calendar {
+  position: relative;
+  &__col {
+    width: 14.25%;
+  }
+  &__cell {
+    height: 15vh;
+    padding: 5px;
+    border: 1px solid #d3d3d3;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /*&__date {
+      position: fixed;
+      background: inherit;
+    }*/
+    &_ev {
+      background-color: lightblue;
+      /*&:nth-child(1) {
+        margin-top: 50px!important;
+        background: red;
+      }*/
+    }
+
+  }
+  &__popup {
+    @include popup();
+    box-shadow: 0 0 5px grey;
+    padding: 25px 20px 5px;
+    width: 250px;
+    min-height: 200px;
+    &__input {
+      width: 100%;
+      margin-right: 10px;
+    }
+    &__description {
+      height: 100px;
+      overflow-y: auto;
+    }
+    &__part-title, &__descr-title {
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    &__title {
+      margin-bottom: 0.25rem;
+    }
+    &__date {
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    &__timeInput {
+      width: 90px;
+      padding: .2rem .75rem;
+    }
+    &__input {
+      margin-bottom: 0.5rem;
+      padding: .2rem .75rem;
+    }
+
+  }
+}
+
+.arrow {
+  @include arrow(45deg);
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 7px;
+  z-index: 10;
+}
+
+.popup {
+  border-radius: 3px;
+}
+
